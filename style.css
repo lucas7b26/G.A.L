@@ -1,0 +1,406 @@
+/* ========================= */
+/* CONFIGURAÇÕES GERAIS */
+/* ========================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+    background:#0f0f0f;
+    color:white;
+    min-height:100vh;
+}
+
+/* ========================= */
+/* HEADER */
+/* ========================= */
+
+header{
+    background:#181818;
+    padding:25px;
+    text-align:center;
+    border-bottom:3px solid #c1121f;
+}
+
+header h1{
+    color:#c1121f;
+    font-size:34px;
+    letter-spacing:2px;
+}
+
+header h2{
+    color:#d9d9d9;
+    margin-top:8px;
+    font-weight:normal;
+}
+
+/* ========================= */
+/* MENU */
+/* ========================= */
+
+.menu{
+    display:flex;
+    justify-content:center;
+    gap:10px;
+    flex-wrap:wrap;
+    padding:20px;
+}
+
+.menu button{
+
+    background:#252525;
+
+    color:white;
+
+    border:none;
+
+    padding:12px 25px;
+
+    border-radius:10px;
+
+    cursor:pointer;
+
+    transition:.25s;
+}
+
+.menu button:hover{
+
+    background:#c1121f;
+
+}
+
+.menu button.active{
+
+    background:#c1121f;
+
+}
+
+/* ========================= */
+/* ABAS */
+/* ========================= */
+
+.tab{
+    display:none;
+}
+
+.tab.active{
+    display:block;
+}
+
+/* ========================= */
+/* MAIN */
+/* ========================= */
+
+main{
+
+    width:90%;
+
+    max-width:900px;
+
+    margin:auto;
+
+    margin-bottom:50px;
+
+}
+
+section{
+
+    background:#1c1c1c;
+
+    padding:25px;
+
+    margin-top:20px;
+
+    border-radius:12px;
+
+    box-shadow:0 0 15px rgba(0,0,0,.4);
+
+}
+
+section h2{
+
+    margin-bottom:20px;
+
+    color:#c1121f;
+
+}
+
+section h3{
+
+    margin-top:20px;
+
+    margin-bottom:10px;
+
+}
+
+/* ========================= */
+/* INPUTS */
+/* ========================= */
+
+label{
+
+    display:block;
+
+    margin-top:15px;
+
+    margin-bottom:5px;
+
+}
+
+input,
+
+textarea{
+
+    width:100%;
+
+    padding:12px;
+
+    background:#2d2d2d;
+
+    color:white;
+
+    border:none;
+
+    border-radius:8px;
+
+    font-size:15px;
+
+}
+
+textarea{
+
+    resize:vertical;
+
+    min-height:120px;
+
+}
+
+input:focus,
+
+textarea:focus{
+
+    outline:2px solid #c1121f;
+
+}
+
+/* ========================= */
+/* ATRIBUTOS */
+/* ========================= */
+
+.atributo{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    background:#252525;
+
+    padding:12px;
+
+    border-radius:10px;
+
+    margin-top:12px;
+
+}
+
+.atributo span{
+
+    width:60px;
+
+    font-size:18px;
+
+    font-weight:bold;
+
+}
+
+.atributo input{
+
+    width:70px;
+
+    text-align:center;
+
+}
+
+.atributo button{
+
+    width:40px;
+
+    height:40px;
+
+    border:none;
+
+    border-radius:8px;
+
+    background:#c1121f;
+
+    color:white;
+
+    cursor:pointer;
+
+    font-size:18px;
+
+    transition:.2s;
+
+}
+
+.atributo button:hover{
+
+    background:#ff3747;
+
+}
+
+/* ========================= */
+/* BOTÕES */
+/* ========================= */
+
+button{
+
+    font-size:15px;
+
+}
+
+#novaPericia,
+
+#novoItem,
+
+#novoRitual{
+
+    margin-top:15px;
+
+    background:#c1121f;
+
+    color:white;
+
+    border:none;
+
+    padding:12px 18px;
+
+    border-radius:10px;
+
+    cursor:pointer;
+
+    transition:.2s;
+
+}
+
+#novaPericia:hover,
+
+#novoItem:hover,
+
+#novoRitual:hover{
+
+    background:#ff3747;
+
+}
+
+/* ========================= */
+/* LISTAS */
+/* ========================= */
+
+#listaPericias,
+
+#listaItens,
+
+#listaRituais{
+
+    margin-top:20px;
+
+}
+
+/* ========================= */
+/* CARD */
+/* ========================= */
+
+.card{
+
+    background:#2a2a2a;
+
+    border-left:5px solid #c1121f;
+
+    padding:15px;
+
+    border-radius:10px;
+
+    margin-bottom:15px;
+
+}
+
+.card h3{
+
+    margin-bottom:10px;
+
+}
+
+.card p{
+
+    margin-top:5px;
+
+}
+
+/* ========================= */
+/* PESO */
+/* ========================= */
+
+#pesoAtual{
+
+    color:#ff3747;
+
+    font-weight:bold;
+
+}
+
+/* ========================= */
+/* LINHA */
+/* ========================= */
+
+hr{
+
+    border:none;
+
+    height:2px;
+
+    background:#333;
+
+    margin:25px 0;
+
+}
+
+/* ========================= */
+/* RESPONSIVO */
+/* ========================= */
+
+@media(max-width:700px){
+
+.menu{
+
+    flex-direction:column;
+
+}
+
+.menu button{
+
+    width:100%;
+
+}
+
+main{
+
+    width:95%;
+
+}
+
+.atributo{
+
+    flex-wrap:wrap;
+
+    gap:10px;
+
+}
+
+}
