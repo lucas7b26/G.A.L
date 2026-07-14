@@ -1,406 +1,281 @@
-/* ========================= */
-/* CONFIGURAÇÕES GERAIS */
-/* ========================= */
-
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:Arial, Helvetica, sans-serif;
+* {
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
 }
 
-body{
-    background:#0f0f0f;
-    color:white;
-    min-height:100vh;
+body {
+    margin: 0;
+    background: #120303;
+    color: #ffffff;
 }
 
-/* ========================= */
-/* HEADER */
-/* ========================= */
 
-header{
-    background:#181818;
-    padding:25px;
-    text-align:center;
-    border-bottom:3px solid #c1121f;
+/* CABEÇALHO */
+
+header {
+    text-align: center;
+    background: linear-gradient(#2b0000, #120303);
+    padding: 25px;
+    border-bottom: 3px solid #c00000;
 }
 
-header h1{
-    color:#c1121f;
-    font-size:34px;
-    letter-spacing:2px;
+header h1 {
+    margin: 0;
+    font-size: 45px;
+    color: #ff1a1a;
+    text-shadow: 0 0 10px #900;
 }
 
-header h2{
-    color:#d9d9d9;
-    margin-top:8px;
-    font-weight:normal;
+header h2 {
+    color: #ff7777;
 }
 
-/* ========================= */
+
 /* MENU */
-/* ========================= */
 
-.menu{
-    display:flex;
-    justify-content:center;
-    gap:10px;
-    flex-wrap:wrap;
-    padding:20px;
+.menu {
+    display: flex;
+    overflow-x: auto;
+    gap: 8px;
+    padding: 12px;
+    background: #210505;
+    border-bottom: 2px solid #7a0000;
 }
 
-.menu button{
+.tab-button {
 
-    background:#252525;
-
-    color:white;
-
-    border:none;
-
-    padding:12px 25px;
-
-    border-radius:10px;
-
-    cursor:pointer;
-
-    transition:.25s;
-}
-
-.menu button:hover{
-
-    background:#c1121f;
+    background: #4d0000;
+    color: white;
+    border: 1px solid #990000;
+    padding: 12px 15px;
+    border-radius: 8px;
 
 }
 
-.menu button.active{
+.tab-button.active {
 
-    background:#c1121f;
-
-}
-
-/* ========================= */
-/* ABAS */
-/* ========================= */
-
-.tab{
-    display:none;
-}
-
-.tab.active{
-    display:block;
-}
-
-/* ========================= */
-/* MAIN */
-/* ========================= */
-
-main{
-
-    width:90%;
-
-    max-width:900px;
-
-    margin:auto;
-
-    margin-bottom:50px;
+    background: #d00000;
+    box-shadow: 0 0 10px #ff0000;
 
 }
 
-section{
 
-    background:#1c1c1c;
+/* CONTEÚDO */
 
-    padding:25px;
-
-    margin-top:20px;
-
-    border-radius:12px;
-
-    box-shadow:0 0 15px rgba(0,0,0,.4);
-
+main {
+    padding: 15px;
 }
 
-section h2{
-
-    margin-bottom:20px;
-
-    color:#c1121f;
-
+.tab {
+    display: none;
 }
 
-section h3{
-
-    margin-top:20px;
-
-    margin-bottom:10px;
-
+.tab.active {
+    display: block;
 }
 
-/* ========================= */
-/* INPUTS */
-/* ========================= */
 
-label{
+/* TEXTOS */
 
-    display:block;
-
-    margin-top:15px;
-
-    margin-bottom:5px;
-
+h2 {
+    color: #ff3333;
 }
+
+h3 {
+    color: #ff6666;
+}
+
+
+/* CAMPOS */
+
+label {
+    display: block;
+    margin-top: 12px;
+    color: #ffb3b3;
+}
+
 
 input,
+textarea {
 
-textarea{
+    width: 100%;
+    padding: 12px;
 
-    width:100%;
+    background: #260808;
 
-    padding:12px;
+    border: 1px solid #a00000;
 
-    background:#2d2d2d;
+    color: white;
 
-    color:white;
-
-    border:none;
-
-    border-radius:8px;
-
-    font-size:15px;
+    border-radius: 8px;
 
 }
 
-textarea{
-
-    resize:vertical;
-
-    min-height:120px;
-
-}
 
 input:focus,
+textarea:focus {
 
-textarea:focus{
+    outline: none;
 
-    outline:2px solid #c1121f;
+    border-color: #ff0000;
 
-}
-
-/* ========================= */
-/* ATRIBUTOS */
-/* ========================= */
-
-.atributo{
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:space-between;
-
-    background:#252525;
-
-    padding:12px;
-
-    border-radius:10px;
-
-    margin-top:12px;
+    box-shadow: 0 0 8px #800;
 
 }
 
-.atributo span{
 
-    width:60px;
-
-    font-size:18px;
-
-    font-weight:bold;
-
-}
-
-.atributo input{
-
-    width:70px;
-
-    text-align:center;
-
-}
-
-.atributo button{
-
-    width:40px;
-
-    height:40px;
-
-    border:none;
-
-    border-radius:8px;
-
-    background:#c1121f;
-
-    color:white;
-
-    cursor:pointer;
-
-    font-size:18px;
-
-    transition:.2s;
-
-}
-
-.atributo button:hover{
-
-    background:#ff3747;
-
-}
-
-/* ========================= */
 /* BOTÕES */
-/* ========================= */
 
-button{
+button {
 
-    font-size:15px;
+    background: #a00000;
 
-}
+    color: white;
 
-#novaPericia,
+    border: 1px solid #ff3333;
 
-#novoItem,
+    padding: 10px 15px;
 
-#novoRitual{
+    border-radius: 8px;
 
-    margin-top:15px;
-
-    background:#c1121f;
-
-    color:white;
-
-    border:none;
-
-    padding:12px 18px;
-
-    border-radius:10px;
-
-    cursor:pointer;
-
-    transition:.2s;
+    cursor: pointer;
 
 }
 
-#novaPericia:hover,
 
-#novoItem:hover,
+button:hover {
 
-#novoRitual:hover{
-
-    background:#ff3747;
+    background: #e00000;
 
 }
 
-/* ========================= */
+
+/* ATRIBUTOS */
+
+.atributo {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    background: #260707;
+
+    padding: 12px;
+
+    margin: 8px 0;
+
+    border-radius: 10px;
+
+    border-left: 4px solid #d00000;
+
+}
+
+
+.atributo input {
+
+    width: 60px;
+
+    text-align: center;
+
+}
+
+
 /* LISTAS */
-/* ========================= */
 
-#listaPericias,
+#listaPericias div,
+#listaItens div,
+#listaHabilidades div,
+#listaRituais div {
 
-#listaItens,
 
-#listaRituais{
+    background: #220606;
 
-    margin-top:20px;
+    padding: 15px;
 
-}
+    margin: 10px 0;
 
-/* ========================= */
-/* CARD */
-/* ========================= */
+    border-radius: 10px;
 
-.card{
+    border-left: 5px solid #ff0000;
 
-    background:#2a2a2a;
-
-    border-left:5px solid #c1121f;
-
-    padding:15px;
-
-    border-radius:10px;
-
-    margin-bottom:15px;
 
 }
 
-.card h3{
 
-    margin-bottom:10px;
+/* MODAIS */
 
-}
+.modal {
 
-.card p{
+    display: none;
 
-    margin-top:5px;
+    position: fixed;
 
-}
+    inset: 0;
 
-/* ========================= */
-/* PESO */
-/* ========================= */
+    background: rgba(50,0,0,0.85);
 
-#pesoAtual{
+    justify-content: center;
 
-    color:#ff3747;
+    align-items: center;
 
-    font-weight:bold;
+    padding: 20px;
 
 }
 
-/* ========================= */
-/* LINHA */
-/* ========================= */
 
-hr{
+.modal.active {
 
-    border:none;
-
-    height:2px;
-
-    background:#333;
-
-    margin:25px 0;
+    display: flex;
 
 }
 
-/* ========================= */
-/* RESPONSIVO */
-/* ========================= */
 
-@media(max-width:700px){
+.modal-content {
 
-.menu{
+    background: #180303;
 
-    flex-direction:column;
+    width: 100%;
 
-}
+    max-width: 420px;
 
-.menu button{
+    padding: 20px;
 
-    width:100%;
+    border-radius: 12px;
 
-}
+    border: 2px solid #d00000;
 
-main{
-
-    width:95%;
+    box-shadow: 0 0 20px #800;
 
 }
 
-.atributo{
 
-    flex-wrap:wrap;
+/* ROLAGEM */
 
-    gap:10px;
+::-webkit-scrollbar {
+
+    width: 8px;
 
 }
+
+::-webkit-scrollbar-thumb {
+
+    background: #b00000;
+
+    border-radius: 10px;
+
+}
+
+
+/* RODAPÉ */
+
+footer {
+
+    text-align: center;
+
+    padding: 20px;
+
+    color: #ff5555;
 
 }
