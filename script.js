@@ -1,13 +1,14 @@
-// =========================
-// ABAS
-// =========================
+// ===============================
+// SISTEMA DE ABAS
+// ===============================
 
 const botoes = document.querySelectorAll(".tab-button");
 const abas = document.querySelectorAll(".tab");
 
+
 botoes.forEach(botao => {
 
-    botao.addEventListener("click", () => {
+    botao.onclick = () => {
 
         botoes.forEach(b => b.classList.remove("active"));
         abas.forEach(a => a.classList.remove("active"));
@@ -15,246 +16,337 @@ botoes.forEach(botao => {
         botao.classList.add("active");
 
         document
-            .getElementById(botao.dataset.tab)
-            .classList.add("active");
+        .getElementById(botao.dataset.tab)
+        .classList.add("active");
 
-    });
+    };
 
 });
 
-// =========================
+
+// ===============================
 // ATRIBUTOS
-// =========================
+// ===============================
 
-let pontosRestantes = 4;
+document.querySelectorAll(".atributo").forEach(attr => {
 
-const atributos = document.querySelectorAll(".atributo");
+    const menos = attr.querySelector(".menos");
+    const mais = attr.querySelector(".mais");
+    const valor = attr.querySelector("input");
 
-atributos.forEach(attr => {
-
-    const menos = attr.children[1];
-    const input = attr.children[2];
-    const mais = attr.children[3];
 
     mais.onclick = () => {
 
-        if (pontosRestantes > 0) {
+        valor.value++;
 
-            input.value++;
+    };
 
-            pontosRestantes--;
-
-            atualizarPeso();
-
-            salvar();
-
-        }
-
-    }
 
     menos.onclick = () => {
 
-        if (Number(input.value) > 1) {
+        if(valor.value > 0)
+            valor.value--;
 
-            input.value--;
-
-            pontosRestantes++;
-
-            atualizarPeso();
-
-            salvar();
-
-        }
-
-    }
+    };
 
 });
 
-// =========================
-// PESO
-// =========================
 
-function atualizarPeso(){
+// ===============================
+// SISTEMA DE MODAIS
+// ===============================
 
-    const forca = Number(document.querySelectorAll(".atributo input")[0].value);
+function abrir(id){
 
-    document.getElementById("pesoAtual").innerText =
-    "0 / " + (forca*5);
+    document
+    .getElementById(id)
+    .classList.add("active");
 
 }
 
-// =========================
+
+function fechar(id){
+
+    document
+    .getElementById(id)
+    .classList.remove("active");
+
+}
+
+
+// ===============================
 // PERÍCIAS
-// =========================
+// ===============================
 
-document.getElementById("novaPericia").onclick = ()=>{
 
-    const nome = prompt("Nome da Perícia");
+const novaPericia =
+document.getElementById("novaPericia");
 
-    if(!nome) return;
 
-    const atributo = prompt("Atributo");
+novaPericia.onclick = () => {
 
-    if(!atributo) return;
+    abrir("modalPericia");
 
-    const bonus = prompt("Bônus");
+};
 
-    if(!bonus) return;
 
-    const card = document.createElement("div");
+document.getElementById("cancelarPericia").onclick = () => {
 
-    card.className="card";
+    fechar("modalPericia");
 
-    card.innerHTML=`
+};
 
-        <h3>${nome}</h3>
 
-        <p><strong>Atributo:</strong> ${atributo}</p>
+document.getElementById("salvarPericia").onclick = () => {
 
-        <p><strong>Bônus:</strong> ${bonus}</p>
+
+    let nome =
+    document.getElementById("periciaNome").value;
+
+
+    let atributo =
+    document.getElementById("periciaAtributo").value;
+
+
+    let bonus =
+    document.getElementById("periciaBonus").value;
+
+
+    document.getElementById("listaPericias")
+    .innerHTML += `
+
+    <div>
+    <b>${nome}</b><br>
+    Atributo: ${atributo}<br>
+    Bônus: ${bonus}
+    </div>
 
     `;
 
-    document.getElementById("listaPericias").appendChild(card);
 
-    salvar();
+    fechar("modalPericia");
 
-}
+};
 
-// =========================
+
+// ===============================
 // INVENTÁRIO
-// =========================
+// ===============================
 
-document.getElementById("novoItem").onclick=()=>{
 
-    const nome=prompt("Nome do Item");
+let peso = 0;
 
-    if(!nome) return;
 
-    const peso=prompt("Peso");
+document.getElementById("novoItem").onclick = () => {
 
-    if(!peso) return;
+    abrir("modalItem");
 
-    const habilidade=prompt("Habilidade");
+};
 
-    const card=document.createElement("div");
 
-    card.className="card";
+document.getElementById("cancelarItem").onclick = () => {
 
-    card.innerHTML=`
+    fechar("modalItem");
 
-        <h3>${nome}</h3>
+};
 
-        <p><strong>Peso:</strong> ${peso}</p>
 
-        <p>${habilidade}</p>
+document.getElementById("salvarItem").onclick = () => {
+
+
+    let nome =
+    document.getElementById("itemNome").value;
+
+
+    let pesoItem =
+    Number(document.getElementById("itemPeso").value);
+
+
+    let descricao =
+    document.getElementById("itemDescricao").value;
+
+
+
+    peso += pesoItem;
+
+
+    document.getElementById("pesoAtual")
+    .innerText = peso + " / 5";
+
+
+    document.getElementById("listaItens")
+    .innerHTML += `
+
+    <div>
+
+    <b>${nome}</b><br>
+
+    Peso: ${pesoItem}<br>
+
+    ${descricao}
+
+    </div>
 
     `;
 
-    document.getElementById("listaItens").appendChild(card);
 
-    salvar();
+    fechar("modalItem");
 
-}
+};
 
-// =========================
+
+
+// ===============================
+// HABILIDADES
+// ===============================
+
+
+const tag =
+document.getElementById("habTag");
+
+
+tag.oninput = () => {
+
+
+    let valor =
+    tag.value.toLowerCase();
+
+
+    if(valor === "poder paranormal"){
+
+        document.getElementById("campoElemento")
+        .style.display="block";
+
+    }
+
+    else{
+
+        document.getElementById("campoElemento")
+        .style.display="none";
+
+    }
+
+
+};
+
+
+
+document.getElementById("novaHabilidade").onclick = () => {
+
+    abrir("modalHabilidade");
+
+};
+
+
+
+document.getElementById("cancelarHabilidade").onclick = () => {
+
+    fechar("modalHabilidade");
+
+};
+
+
+
+document.getElementById("salvarHabilidade").onclick = () => {
+
+
+let nome =
+document.getElementById("habNome").value;
+
+
+let tag =
+document.getElementById("habTag").value;
+
+
+let descricao =
+document.getElementById("habDescricao").value;
+
+
+let elemento =
+document.getElementById("habElemento").value;
+
+
+
+document.getElementById("listaHabilidades")
+.innerHTML += `
+
+<div>
+
+<b>${nome}</b><br>
+
+Tag: ${tag}<br>
+
+${elemento ? "Elemento: "+elemento+"<br>" : ""}
+
+${descricao}
+
+</div>
+
+`;
+
+
+fechar("modalHabilidade");
+
+
+};
+
+
+// ===============================
 // RITUAIS
-// =========================
+// ===============================
 
-document.getElementById("novoRitual").onclick=()=>{
 
-    const nome=prompt("Nome");
+document.getElementById("novoRitual").onclick = () => {
 
-    if(!nome) return;
+abrir("modalRitual");
 
-    const elemento=prompt("Elemento");
+};
 
-    const circulo=prompt("Círculo");
 
-    const execucao=prompt("Execução");
 
-    const alcance=prompt("Alcance");
+document.getElementById("cancelarRitual").onclick = () => {
 
-    const alvo=prompt("Alvo");
+fechar("modalRitual");
 
-    const duracao=prompt("Duração");
+};
 
-    const resistencia=prompt("Resistência");
 
-    const descricao=prompt("Descrição");
 
-    const card=document.createElement("div");
+document.getElementById("salvarRitual").onclick = () => {
 
-    card.className="card";
 
-    card.innerHTML=`
+let nome =
+document.getElementById("ritualNome").value;
 
-        <h3>${nome}</h3>
 
-        <p><strong>Elemento:</strong> ${elemento}</p>
+let elemento =
+document.getElementById("ritualElemento").value;
 
-        <p><strong>Círculo:</strong> ${circulo}</p>
 
-        <p><strong>Execução:</strong> ${execucao}</p>
+let descricao =
+document.getElementById("ritualDescricao").value;
 
-        <p><strong>Alcance:</strong> ${alcance}</p>
 
-        <p><strong>Alvo:</strong> ${alvo}</p>
 
-        <p><strong>Duração:</strong> ${duracao}</p>
+document.getElementById("listaRituais")
+.innerHTML += `
 
-        <p><strong>Resistência:</strong> ${resistencia}</p>
 
-        <hr>
+<div>
 
-        <p>${descricao}</p>
+<b>${nome}</b><br>
 
-    `;
+Elemento: ${elemento}<br>
 
-    document.getElementById("listaRituais").appendChild(card);
+${descricao}
 
-    salvar();
+</div>
 
-}
 
-// =========================
-// SALVAR
-// =========================
+`;
 
-function salvar(){
 
-    const dados={
+fechar("modalRitual");
 
-        html:document.body.innerHTML,
 
-        pontos:pontosRestantes
-
-    }
-
-    localStorage.setItem("FichaOrdem",JSON.stringify(dados));
-
-}
-
-// =========================
-// CARREGAR
-// =========================
-
-window.onload=()=>{
-
-    const dados=localStorage.getItem("FichaOrdem");
-
-    if(dados){
-
-        const ficha=JSON.parse(dados);
-
-        document.body.innerHTML=ficha.html;
-
-        pontosRestantes=ficha.pontos;
-
-        location.reload();
-
-    }
-
-    atualizarPeso();
-
-}
+};
