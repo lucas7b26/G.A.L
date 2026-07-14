@@ -1,40 +1,58 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ficha - Ordem Paranormal</title>
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>G.A.L - Gerenciador de Agentes</title>
 
     <link rel="stylesheet" href="style.css">
+
 </head>
+
 <body>
 
 <header>
 
-    <h1>ORDEM PARANORMAL</h1>
-    <h2>Ficha de Personagem</h2>
+    <h1>G.A.L</h1>
+
+    <h2>Gerenciador de Agentes</h2>
 
 </header>
 
 <nav class="menu">
 
-    <button class="tab-button active" data-tab="inicio">
+    <button class="tab-button active"
+            data-tab="inicio">
         Inicial
     </button>
 
-    <button class="tab-button" data-tab="status">
+    <button class="tab-button"
+            data-tab="status">
         Status
     </button>
 
-    <button class="tab-button" data-tab="pericias">
+    <button class="tab-button"
+            data-tab="pericias">
         Perícias
     </button>
 
-    <button class="tab-button" data-tab="inventario">
+    <button class="tab-button"
+            data-tab="inventario">
         Inventário
     </button>
 
-    <button class="tab-button" data-tab="rituais">
+    <button class="tab-button"
+            data-tab="habilidades">
+        Habilidades
+    </button>
+
+    <button class="tab-button"
+            data-tab="rituais">
         Rituais
     </button>
 
@@ -46,21 +64,35 @@
 <!-- ABA INICIAL -->
 <!-- ========================= -->
 
-<section id="inicio" class="tab active">
+<section
+id="inicio"
+class="tab active">
 
-<h2>Informações</h2>
+<h2>Informações do Personagem</h2>
 
 <label>Nome do Personagem</label>
-<input type="text" id="nome">
+
+<input
+type="text"
+id="nome">
 
 <label>Jogador</label>
-<input type="text" id="jogador">
+
+<input
+type="text"
+id="jogador">
 
 <label>Origem</label>
-<input type="text" id="origem">
+
+<input
+type="text"
+id="origem">
 
 <label>Classe</label>
-<input type="text" id="classe">
+
+<input
+type="text"
+id="classe">
 
 </section>
 
@@ -68,7 +100,9 @@
 <!-- STATUS -->
 <!-- ========================= -->
 
-<section id="status" class="tab">
+<section
+id="status"
+class="tab">
 
 <h2>Status</h2>
 
@@ -78,11 +112,14 @@
 
 <span>FOR</span>
 
-<button>-</button>
+<button class="menos">-</button>
 
-<input type="number" value="1">
+<input
+type="number"
+value="1"
+readonly>
 
-<button>+</button>
+<button class="mais">+</button>
 
 </div>
 
@@ -90,11 +127,14 @@
 
 <span>AGI</span>
 
-<button>-</button>
+<button class="menos">-</button>
 
-<input type="number" value="1">
+<input
+type="number"
+value="1"
+readonly>
 
-<button>+</button>
+<button class="mais">+</button>
 
 </div>
 
@@ -102,11 +142,14 @@
 
 <span>INT</span>
 
-<button>-</button>
+<button class="menos">-</button>
 
-<input type="number" value="1">
+<input
+type="number"
+value="1"
+readonly>
 
-<button>+</button>
+<button class="mais">+</button>
 
 </div>
 
@@ -114,11 +157,14 @@
 
 <span>PRE</span>
 
-<button>-</button>
+<button class="menos">-</button>
 
-<input type="number" value="1">
+<input
+type="number"
+value="1"
+readonly>
 
-<button>+</button>
+<button class="mais">+</button>
 
 </div>
 
@@ -126,60 +172,71 @@
 
 <span>VIG</span>
 
-<button>-</button>
+<button class="menos">-</button>
 
-<input type="number" value="1">
+<input
+type="number"
+value="1"
+readonly>
 
-<button>+</button>
+<button class="mais">+</button>
 
 </div>
 
 <h3>NEX</h3>
 
-<input type="number" id="nex">
+<input
+type="number"
+id="nex">
 
 <hr>
 
 <label>Vida</label>
+
 <input type="text">
 
 <label>Sanidade</label>
+
 <input type="text">
 
 <label>Pontos de Esforço (PE)</label>
+
 <input type="text">
 
 <label>Defesa</label>
+
 <input type="text">
 
 <label>Esquiva</label>
+
 <input type="text">
 
 <label>Bloqueio</label>
+
 <input type="text">
 
 <label>Resistências</label>
+
 <textarea></textarea>
 
 </section>
-
 <!-- ========================= -->
 <!-- PERÍCIAS -->
 <!-- ========================= -->
 
-<section id="pericias" class="tab">
+<section
+id="pericias"
+class="tab">
 
-<h2>Perícias</h2>
+    <h2>Perícias</h2>
 
-<button id="novaPericia">
+    <button id="novaPericia">
+        + Nova Perícia
+    </button>
 
-+ Nova Perícia
+    <div id="listaPericias">
 
-</button>
-
-<div id="listaPericias">
-
-</div>
+    </div>
 
 </section>
 
@@ -187,31 +244,55 @@
 <!-- INVENTÁRIO -->
 <!-- ========================= -->
 
-<section id="inventario" class="tab">
+<section
+id="inventario"
+class="tab">
 
-<h2>Inventário</h2>
+    <h2>Inventário</h2>
 
-<h3>
+    <h3>
 
-Peso:
+        Peso Atual
 
-<span id="pesoAtual">
+        <span id="pesoAtual">
 
-0 / 5
+            0 / 5
 
-</span>
+        </span>
 
-</h3>
+    </h3>
 
-<button id="novoItem">
+    <button id="novoItem">
 
-+ Novo Item
+        + Novo Item
 
-</button>
+    </button>
 
-<div id="listaItens">
+    <div id="listaItens">
 
-</div>
+    </div>
+
+</section>
+
+<!-- ========================= -->
+<!-- HABILIDADES -->
+<!-- ========================= -->
+
+<section
+id="habilidades"
+class="tab">
+
+    <h2>Habilidades</h2>
+
+    <button id="novaHabilidade">
+
+        + Nova Habilidade
+
+    </button>
+
+    <div id="listaHabilidades">
+
+    </div>
 
 </section>
 
@@ -219,25 +300,148 @@ Peso:
 <!-- RITUAIS -->
 <!-- ========================= -->
 
-<section id="rituais" class="tab">
+<section
+id="rituais"
+class="tab">
 
-<h2>Rituais</h2>
+    <h2>Rituais</h2>
 
-<button id="novoRitual">
+    <button id="novoRitual">
 
-+ Novo Ritual
+        + Novo Ritual
 
-</button>
+    </button>
 
-<div id="listaRituais">
+    <div id="listaRituais">
+
+    </div>
+
+</section>
+<!-- ========================= -->
+<!-- MODAL PERÍCIA -->
+<!-- ========================= -->
+
+<div id="modalPericia" class="modal">
+
+    <div class="modal-content">
+
+        <h2>Nova Perícia</h2>
+
+        <label>Nome</label>
+        <input type="text" id="periciaNome">
+
+        <label>Atributo</label>
+        <input type="text" id="periciaAtributo">
+
+        <label>Bônus</label>
+        <input type="text" id="periciaBonus">
+
+        <button id="salvarPericia">Salvar</button>
+        <button id="cancelarPericia">Cancelar</button>
+
+    </div>
 
 </div>
 
-</section>
+<!-- ========================= -->
+<!-- MODAL ITEM -->
+<!-- ========================= -->
 
-</main>
+<div id="modalItem" class="modal">
 
-<script src="script.js"></script>
+    <div class="modal-content">
 
-</body>
-</html>
+        <h2>Novo Item</h2>
+
+        <label>Nome</label>
+        <input type="text" id="itemNome">
+
+        <label>Peso</label>
+        <input type="number" id="itemPeso">
+
+        <label>Habilidade</label>
+        <textarea id="itemDescricao"></textarea>
+
+        <button id="salvarItem">Salvar</button>
+        <button id="cancelarItem">Cancelar</button>
+
+    </div>
+
+</div>
+
+<!-- ========================= -->
+<!-- MODAL HABILIDADE -->
+<!-- ========================= -->
+
+<div id="modalHabilidade" class="modal">
+
+    <div class="modal-content">
+
+        <h2>Nova Habilidade</h2>
+
+        <label>Nome</label>
+        <input type="text" id="habNome">
+
+        <label>Tag</label>
+        <input type="text" id="habTag">
+
+        <div id="campoElemento" style="display:none;">
+
+            <label>Elemento</label>
+            <input type="text" id="habElemento">
+
+        </div>
+
+        <label>Descrição</label>
+        <textarea id="habDescricao"></textarea>
+
+        <button id="salvarHabilidade">Salvar</button>
+        <button id="cancelarHabilidade">Cancelar</button>
+
+    </div>
+
+</div>
+
+<!-- ========================= -->
+<!-- MODAL RITUAL -->
+<!-- ========================= -->
+
+<div id="modalRitual" class="modal">
+
+    <div class="modal-content">
+
+        <h2>Novo Ritual</h2>
+
+        <label>Nome</label>
+        <input type="text" id="ritualNome">
+
+        <label>Elemento</label>
+        <input type="text" id="ritualElemento">
+
+        <label>Círculo</label>
+        <input type="text" id="ritualCirculo">
+
+        <label>Execução</label>
+        <input type="text" id="ritualExecucao">
+
+        <label>Alcance</label>
+        <input type="text" id="ritualAlcance">
+
+        <label>Alvo</label>
+        <input type="text" id="ritualAlvo">
+
+        <label>Duração</label>
+        <input type="text" id="ritualDuracao">
+
+        <label>Resistência</label>
+        <input type="text" id="ritualResistencia">
+
+        <label>Descrição</label>
+        <textarea id="ritualDescricao"></textarea>
+
+        <button id="salvarRitual">Salvar</button>
+        <button id="cancelarRitual">Cancelar</button>
+
+    </div>
+
+</div>
